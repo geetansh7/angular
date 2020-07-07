@@ -1,0 +1,25 @@
+<!-- Add formgroup dynamically -->
+<ng-container *ngIf="FormGroup.controls.itemRows != null">
+	<div *ngFor="let itemrow of FormGroup.controls.itemRows.controls; let i = index;" [formGroup]="itemrow">
+		<div class = "row">
+			<div class="col-md-2 form-group">
+				<input matInput placeholder="Name" formControlName="Name">
+			</div>
+			<div class="col-md-2 form-group">
+				<input matInput placeholder="Rollno" formControlName="Rollno">
+			</div>
+			<div class="col-md-2 form-group">
+				<input matInput placeholder="Class" formControlName="Class">
+			</div>
+			<div class="col-md-2 form-group">
+				<input matInput placeholder="MobileNo" formControlName="Mobileno">
+			</div>
+			<div class="col-md-2 form-group">
+				<button class="btn btn-danger" (click)="deleteRow(i)">Delete row</button>
+			</div>
+		</div>
+	</div>
+</ng-container>
+<div class="form-group" style="text-align: right">
+	<button type="button" (click)="addNewRow()" [disabled]="FormGroup.invalid" class="btn btn-primary">Add New Row</button>
+</div>

@@ -1,0 +1,30 @@
+<div>
+  Hi There..Components and Directive...
+</div> <button>Button1</button> <button> Button 2 </button>
+<!-- PreserveWhitespaces: true displays the content as it is without removing spaces between 2 buttons -->
+<hr>
+<br>
+<!-- trackby example in for loop... -->
+<table border="1">
+  <tr *ngFor="let s of students; let i = index; trackBy: trackByStudentid">
+    <!-- If we write method name with trackby it tracks by index and per student also and doesnot re-render the already available student values -->
+    <td>{{i+1}}</td>
+    <td>{{s.studentid}}</td>
+    <td>{{s.name}}</td>
+  </tr>
+</table>
+<br>
+<button (click)="getMoreStudents()">Get more students</button>
+<!-- end -->
+
+
+<!-- Grouping with ngFor -->
+<ul *ngFor="let country of countryDetails">
+  <li>
+    {{country.country}}
+  </li>
+    <ul *ngFor="let people of country.people">
+      <li>{{people.name}}</li>
+    </ul>
+</ul>
+<!-- end -->

@@ -1,0 +1,17 @@
+<div class="box-header with-border">
+  <div class="form-group voffset row"> 
+      <label for="" class="vertical-label col-sm-4 col-md-8 text-right"> Update Form</label> 
+      <div class="col-sm-8 col-md-4">
+          <select (change)="selectName($event.target.value);">  
+                  <option value="0">--Select--</option>
+               <option [value]="obj.Id" *ngFor="let obj of data">  
+                   {{obj.Name}}  
+            </option>
+       </select>
+      </div>
+  </div>
+  <div class="form-group voffset row">
+  <template #loadComponent>
+  </template>
+  </div>
+</div> 

@@ -1,0 +1,40 @@
+<div>
+  {{firstname + lastname}}
+  {{firstdigit + seconddigit}}
+</div>
+<input [value]="data" (input)="data = $event.target.value">
+{{data}}
+<!-- event binding and property binding separately used -->
+
+<input [(ngModel)]="data1">
+{{data1}}
+
+<!-- Since angular provides 2 way data binding so second approach can be used and syntax is much smaller. Also FormsModule should be imported in the app.module.ts file to use [(ngModel)]-->
+
+<!-- String interpolation -->
+<br>{{title}}<br>
+<!-- end -->
+
+<!-- Property binding -->
+<span [innerHtml]="title"></span>
+<img [src]="'https://en.wikipedia.org/wiki/Image#/media/File:Image_created_with_a_mobile_phone.png'" [height]="200">
+<!-- end -->
+
+<!-- Attribute binding -->
+<!-- Should only be used when there is no property to bind -->
+<table border="1" height="200" width="400">
+	<tr>
+		<td [attr.colspan]="cols" align="center">Student details
+	</tr>
+	<tr>
+		<td>Id</td>
+		<td>Name</td>
+		<td>Class</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>Geetansh</td>
+		<td>12th</td>
+	</tr>
+</table>
+<!-- end -->

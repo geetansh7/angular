@@ -1,0 +1,16 @@
+<div>
+  Hi There...FormArray it is..
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div formArrayName="ContactNos">
+    <div *ngFor="let contact of form.controls.ContactNos.controls; index as i">
+      <input [formControlName]="i" placeholder="Contact No">
+    </div>
+  </div>
+  <button>Submit</button>
+</form>
+<button (click)="addContactNo()">Add new contact no</button>
+<button (click)="setPreset()">Set preset</button>
+
+
+<app-dynamicformgroup></app-dynamicformgroup>

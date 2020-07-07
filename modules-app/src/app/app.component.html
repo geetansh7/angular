@@ -1,0 +1,14 @@
+<nav [ngClass]="'menu'">
+  <ul>
+    <li><a routerLink ="/company" routerLinkActive = "active">Company</a></li>
+    <li><a routerLink ="/person" routerLinkActive = "active">Person</a></li>
+    <li><a routerLink ="/contactus" routerLinkActive = "active">Contact Us</a></li>
+    <li><a [routerLink] = "[{outlets: {auxiliaryOutlet: ['auxiliary']}}]" routerLinkActive = "active">Auxiliary Route</a></li>
+    <!-- Component has one primary route and 0 or more Auxiliary routes. Auxiliary routes allow us to use and navigate multiple routes
+    For eg, if we want to treat app as a multi window app, like chat box at bottom, a live tracker of stocks on left, we can use auxiliary route for bottom and left and on the middle is the primary route -->
+  </ul>
+</nav>
+<div [ngClass]="'parent-container'">
+  <router-outlet></router-outlet>
+</div>
+<router-outlet name="auxiliaryOutlet"></router-outlet>

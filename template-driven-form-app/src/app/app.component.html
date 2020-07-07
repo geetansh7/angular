@@ -1,0 +1,28 @@
+<div>
+  Hi There...Template form!
+</div>
+<div class="container">
+  <div class="row">
+  <div class="form-bg">
+    <form #regForm='ngForm' (ngSubmit)="Register(regForm)">
+      <h2 class="tezt-center">
+        Registration Page
+      </h2>
+      <br>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="First Name" name="firstname" required ngModel>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Last Name" name="lastname" required ngModel>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Email" name="email" email required ngModel #email1='ngModel'> <!-- variable email1 can be same as name attribute i.e. email -->
+        <span class="help-box" *ngIf="email1.touched && !email1.valid">Please enter proper email value</span>
+      </div>
+      <div class="align-center">
+        <button type="submit" class="btn btn-primary" id="Register" [disabled]="regForm.invalid">Register</button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

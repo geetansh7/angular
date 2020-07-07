@@ -1,0 +1,12 @@
+<div>
+  HI There..Lifecycle hook it is
+</div>
+
+<input type="text" #pcomponent (keyup)="0" [(ngModel)]="input1">
+<input type="text" #pcomponent1 (keyup)="0" [(ngModel)]="childValue">
+<input type="text" #pcomponent2 (keyup)="changeValue()">
+<label>{{childValue}}</label>
+<app-child *ngIf = "isVisible" [pData]="pcomponent.value" [pData1]="pcomponent1.value" [pData2] = "changedValue" [arrList]="myArr" (childValue)="changedChildValue($event)"></app-child>
+<button (click)="addValue()">Add</button>
+<button (click)="changeMessage()">changeMessage</button>
+<button (click)="toggleVisible()">toggleVisible</button>

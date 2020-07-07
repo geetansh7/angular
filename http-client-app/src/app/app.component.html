@@ -1,0 +1,55 @@
+<div>
+  Hi there...HttpClient it is
+</div>
+
+<form [formGroup]="bookForm" (ngSubmit)="onFormSubmit()">
+  <table>
+    <tr>
+      <td>
+        Name: 
+      </td>
+      <td>
+        <input formControlName="name">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Category: 
+      </td>
+      <td>
+        <input formControlName="category">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Writer: 
+      </td>
+      <td>
+        <input formControlName="writer">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button [disabled]="bookForm.invalid">Submit</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<h3>View</h3>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Writer</th>
+  </tr>
+  <tr *ngFor="let bk of allBooks|async">
+    <td>{{bk.id}}</td>
+    <td>{{bk.name}}</td>
+    <td>{{bk.category}}</td>
+    <td>{{bk.writer}}</td>
+    <td><button type="button" (click)="booktoEdit(bk.id)">Edit</button></td>
+    <td><button type="button" (click)="booktoDelete(bk.id)">Delete</button></td>
+  </tr>
+</table>
