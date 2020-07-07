@@ -1,0 +1,13 @@
+<p>Hi There, Viewchild example...</p>
+<button (click)="increase()">Increase</button>
+<button (click)="decrease()">Decrease</button>
+<br>
+<!-- Viewchild using component properties-->
+<app-counter></app-counter> 
+
+<!-- Viewchild using directive functionality -->
+<span style="width: 100vw; border-bottom: 1px solid black;"></span>
+<p appChangeColor>Change my color</p>
+<button (click)="changeColor('green')">Green color</button>
+<button (click)="changeColor('red')">Red color</button>
+<button (click)="changeColor('blue')">Blue color</button>

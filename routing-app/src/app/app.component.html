@@ -1,0 +1,13 @@
+<div>
+	Hi There, Router.......
+</div>
+<!-- routerlinkactive adds a class 'active' to the element or can be applied on parent as well -->
+<div routerLinkActive="active">Inside parent div - 
+<a [routerLink]="['/student']">Student</a>
+</div>
+<a [routerLink]="['/studentdetails']" routerLinkActive="active">Student Details</a>
+<a [routerLink]="['/teacherdetails']" routerLinkActive="active">Teacher Details</a>
+<a [routerLink]="['/countrylist']" routerLinkActive="active">Country Details</a>
+<a [routerLink]="['/admin']" routerLinkActive="active">Admin</a>
+<button (click)="toggleAdmin()">Change Admin{{isAdmin}}</button>
+<router-outlet></router-outlet>

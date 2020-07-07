@@ -1,0 +1,4 @@
+<p>student works!</p>
+<div *ngFor="let student of students">
+	{{student.id}} - <a [routerLink]="['/studentdetails', student.id]">{{student.name}}</a>
+</div>

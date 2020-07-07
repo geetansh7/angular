@@ -1,0 +1,17 @@
+<div>Hi There....Pipes!</div>
+<div>
+  {{dob}} <br>
+  {{dob|date:"medium"}} <br>
+  {{dob|date:"short"}} <br>
+  {{dob|date:"dd/MM/yyyy"}} <br>
+  {{dob|date:"mediumTime"}} <br>
+  {{salary|currency:'USD':'code':'1.3-4'}} <br> <!-- default is true which shows $ otherwise false/'code' shows USD -->
+  {{address|titlecase}} <br>
+  {{address|slice:5}} <br>
+  {{address|slice:6: 13}} <br>
+  {{residents|slice:2}} <br>
+  {{residents|slice:2:3}} <br> <!-- Excludes end index in both string or array cases -->
+  {{0.51000001|percent:'3.1-4'}} <br> <!-- Default are minInteger: 1, minFraction: 0, maxFraction: 3 -->
+  {{employee.name|salutation:employee.gender}}
+  {{student.name|salutation:student.gender}}
+</div>

@@ -1,0 +1,70 @@
+<div *ngIf="displayTemplate; else template2">
+  &lt;div&gt;&#62; with ng-if
+</div>
+<ng-template [ngIf]="displayTemplate">   <!-- If we use else here it will show error: cannot chain binding expressions to chain binding expressions see below example-->
+  Hi There, Conditional template example..
+</ng-template>
+<ng-template #template2>
+  Else block
+</ng-template>
+
+<div *ngFor="let book of books; let i = index;">
+  {{i+1}}{{book.name}}
+</div>
+<ng-template ngFor let-book [ngForOf]="books" let-i="index">   <!-- Chaining of binding expressions-->
+  {{i+1}}{{book.name}}
+</ng-template>
+
+<div [ngSwitch]="'Javascript'">
+  <p *ngSwitchCase="'Javascript'">Javascript Course!</p>
+  <p *ngSwitchCase="'TypeScript'">Typescript course!</p>
+  <p *ngSwitchDefault>Angular Course!</p>
+</div>
+
+<div [ngSwitch]="'Typescrript'">
+  <ng-template [ngSwitchCase]="'Javascript'"><p>Javascipt</p></ng-template>
+  <ng-template [ngSwitchCase]="'Typescript'"><p>Typescript</p></ng-template>
+  <ng-template ngSwitchDefault><p>Angular</p></ng-template>
+</div>
+
+
+<!-- <div *ngFor="let book of books" *ngIf="book.name === 'book1'">
+  {{book.name}}
+</div>  -->
+
+<!-- Error- Can't have multiple template bindings on one element. Use only one attribute prefixed with * -->
+<!-- Multiple structural direcives cannot be used on one element so the concept of containers comes because unlike div containers are not rendered in DOM -->
+
+<ng-container *ngFor="let book of books">
+  <div *ngIf="book.name === 'book1'">
+    {{book.name}}
+  </div>
+</ng-container>
+
+<table>
+  <tbody>
+    <ng-container *ngFor="let book of books">
+      <tr *ngIf="book.name === 'book1'">
+        <td> {{book.name}} </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+<!-- As we can see in above example container doesnot disrupts the table>tbody>tr>td format -->
+
+<ng-container *ngTemplateOutlet="template"></ng-container>
+
+<ng-template #template>Hi There, Dynamic template</ng-template>
+
+<!-- Why do we need to call template from container?? Google it -->
+<!-- Bcz template cannot render on DOM by itself unless called from container or used with structural directives -->
+
+<div>
+<ng-container *ngTemplateOutlet="template1; context:obj"></ng-container>
+<ng-template #template1 let-ob="data">
+  {{ob}}
+</ng-template>
+</div>
+
+<!-- In above example we saw that ng-container can also be used to dynamically generate templates based on context -->

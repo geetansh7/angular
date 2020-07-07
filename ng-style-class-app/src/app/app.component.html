@@ -1,0 +1,14 @@
+Hello there, ngClass example...
+<div [ngClass]="'one two'">
+  ngClass with string..
+</div>
+<div [ngClass]="['one', 'two']">
+  ngClass with array..
+</div>
+<div [ngClass]="{'one': true, 'two': true}">
+  ngClass with object..
+</div>
+<div [ngClass]="getClass()">
+  ngClass with method..
+</div>
+<p [ngStyle]="{'color': 'red', 'background': blackColor}">ngStyle with object...</p>

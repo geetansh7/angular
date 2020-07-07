@@ -1,0 +1,13 @@
+<div class="parent">
+   <p>Parent</p>
+   <form novalidate>
+  			<div class="form-group">
+  			<input type="text"
+  			       class="form-control"
+  			       name="value"
+  			       [(ngModel)]="service.value">
+  		</div>
+  </form>
+  <ng-content></ng-content>
+  <!-- we can use this method for example if parent is designed by another developer and child is designed by another and child designer doesnot know if parent designer has added something in the XML of child directive, so it by defaults add the parent designer's content into the child. We can also select a particular directive in ng-content i.e. <ng-content select="footer-app"></ng-content>  so that only the directive footer-app written in parent directive call will be shown here-->
+</div>
